@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe o Bicho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Adivinhe em qual bicho estou pensando</h1>
+        <div class="bichos">
+            <button data-bicho="peru" onclick="selecionarBicho('peru')">
+                <img src="images/peru.jpg" alt="Peru">
+            </button>
+            <button data-bicho="macaco" onclick="selecionarBicho('macaco')">
+                <img src="images/macaco.jpg" alt="Macaco">
+            </button>
+            <button data-bicho="vaca" onclick="selecionarBicho('vaca')">
+                <img src="images/vaca.jpg" alt="Vaca">
+            </button>
+            <button data-bicho="boi" onclick="selecionarBicho('boi')">
+                <img src="images/boi.jpg" alt="Boi">
+            </button>
+        </div>
+        <div class="aposta">
+            <label for="valorAposta">Valor da Aposta ($):</label>
+            <input type="number" id="valorAposta" name="valorAposta" min="0.50" max="10.00" step="0.01" value="0.50">
+            <div class="wrap">
+                <button class="button" onclick="confirmarAposta()">Apostar</button>
+            </div>
+        </div>
+        <div id="resultado"></div>
+        <button id="jogarNovamente" class="button" onclick="jogar()" style="display: none;">Jogar Novamente</button>
+        <div class="historico">
+            <button class="historico-button" onclick="toggleHistorico()">H</button>
+            <div class="extrato">
+                <button onclick="toggleHistorico()" class="fechar-historico">Fechar</button>
+                <div class="conteudo-historico"></div>
+            </div>
+        </div>
+        <div class="saldo">
+            <span id="saldo">Saldo: $10.00</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+ 
+<button id="jogarNovamente" class="button" onclick="jogarNovamente()" style="display: none;">Jogar Novamente</button>

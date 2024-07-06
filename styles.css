@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.bichos {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Espaçamento inferior entre os botões e a aposta */
+}
+
+.bichos button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 10%; /* Bordas redondas */
+    box-shadow: 0 4px rgba(0, 0, 0, 0);
+    width: 70px; /* Tamanho do botão */
+    height: 70px; /* Tamanho do botão */
+}
+
+.bichos button img {
+    width: 70px; /* Tamanho da imagem */
+    height: 70px; /* Tamanho da imagem */
+    object-fit: cover;
+    border-radius: 10%; /* Bordas redondas */
+    transition: transform 0.2s;
+}
+
+.bichos button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.aposta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.aposta label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.aposta input[type="number"] {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10%; /* Bordas redondas */
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-align: center;
+    background: #e0f7fa;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.button,
+#jogarNovamente {
+    min-width: 150px;
+    min-height: 40px;
+    display: inline-flex;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 10%; /* Bordas redondas */
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    overflow: hidden; /* Para esconder a sobreposição do pseudo-elemento */
+}
+
+.button::before,
+#jogarNovamente::before {
+    content: '';
+    border-radius: 10%; /* Bordas redondas */
+    width: 100%;
+    height: 100%;
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.button:hover::before,
+.button:focus::before,
+#jogarNovamente:hover::before,
+#jogarNovamente:focus::before {
+    width: calc(100% + 12px); /* Ajuste para cobrir completamente o botão */
+    height: calc(100% + 12px); /* Ajuste para cobrir completamente o botão */
+    opacity: 1;
+    animation: ring 1.5s infinite;
+}
+
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+
+.historico {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px; /* Largura do botão */
+    height: 40px; /* Altura do botão */
+    background-color: #4FD1C5;
+    border: none;
+    border-radius: 50%; /* Transforma em círculo */
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.historico:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.extrato {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 200px;
+}
+
+.extrato .fechar-historico {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.extrato .fechar-historico:hover {
+    background-color: #da190b;
+}
+
+.conteudo-historico {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.saldo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 10%; /* Bordas redondas */
+}
